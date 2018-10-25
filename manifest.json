@@ -2,5 +2,8 @@
     "name": "OpsoDashboard",
     "version": "1.0",
     "description": "Build a simple dashboard",
-    "manifest_version": 2
+    "manifest_version": 2,
+    "browser_action": {
+        "default_popup": "index.html"
+    }
 }

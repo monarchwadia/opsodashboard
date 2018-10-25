@@ -1,4 +1,5 @@
 // Configuration for your app
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = function (ctx) {
   return {
@@ -29,7 +30,12 @@ module.exports = function (ctx) {
           test: /\.(js|vue)$/,
           loader: 'eslint-loader',
           exclude: /node_modules/
-        })
+        });
+
+        // Copies the manifest.json that makes the chrome plugin work
+        cfg.plugins.push(new CopyWebpackPlugin([
+          {from: 'manifest.json', to: 'manifest.json'}
+        ]));
       }
     },
     devServer: {
