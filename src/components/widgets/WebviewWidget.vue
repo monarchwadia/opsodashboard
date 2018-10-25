@@ -4,17 +4,24 @@
   </iframe>
 </template>
 
+<style>
+</style>
+
 <script>
+
 export default {
   name: 'WebviewPlugin',
+  computed: {
+    src () {
+      return this.configuration.src
+    }
+  },
   props: {
-    src: {
+    configuration: {
       required: true,
-      type: String
+      type: Object
     }
   }
 }
-</script>
 
-<style>
-</style>
+</script>

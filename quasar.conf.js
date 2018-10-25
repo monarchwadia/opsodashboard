@@ -5,6 +5,7 @@ module.exports = function (ctx) {
   return {
     // app plugins (/src/plugins)
     plugins: [
+      'dashboardContext'
     ],
     css: [
       'app.styl'
@@ -31,6 +32,10 @@ module.exports = function (ctx) {
           loader: 'eslint-loader',
           exclude: /node_modules/
         });
+
+        // add typescript
+        cfg.module.rules.push({ test: /\.ts$/, loader: "ts-loader" });
+        cfg.resolve.extensions.push('.ts');
 
         // Copies the manifest.json that makes the chrome plugin work
         cfg.plugins.push(new CopyWebpackPlugin([
